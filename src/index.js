@@ -12,9 +12,10 @@ const morgan = require('morgan');
 const app = express();
 
 // defining an array to work as the database (temporary solution)
+const internalTopic = process.env.MY_NAME;
 
 const ads = [
-      {title: 'Hello, world (again)!', version: 2}
+      {title: 'Hello, world (again)!', version: 3, internalTopic: internalTopic}
 ];
 
 // adding Helmet to enhance your Rest API's security
