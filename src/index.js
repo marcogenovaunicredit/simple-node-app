@@ -14,7 +14,7 @@ const app = express();
 // defining an array to work as the database (temporary solution)
 
 const ads = [
-      {title: 'Hello, world (again)!'}
+      {title: 'Hello, world (again)!', version: 2}
 ];
 
 // adding Helmet to enhance your Rest API's security
