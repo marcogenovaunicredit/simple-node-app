@@ -1,6 +1,7 @@
 import cluster from 'cluster';
 import http from 'http';
-import { OSUtilities } from './utilities/osUtilities'
+import { OSUtilities } from './utilities/osUtilities';
+import process from 'process';
 
 const numberOfCores = OSUtilities.getNumberOfCPUBasic();
 
@@ -21,5 +22,5 @@ if (cluster.isPrimary) {
     http.createServer((req, res) => {
         res.writeHead(200);
         res.end(`Process ${process.pid} says hello!`);
-    }).listen(8000);
+    }).listen(process.env.HTTP_PORT||'8080');
 }

@@ -1,9 +1,9 @@
-import os from 'os';
+import { cpus } from 'os';
 
 export class OSUtilities {
     constructor(){};
 
     public static getNumberOfCPUBasic() : number {
-        return Math.ceil(os.cpus().length / 2);
+        return Math.ceil(cpus().length / 2);
     }
 };
