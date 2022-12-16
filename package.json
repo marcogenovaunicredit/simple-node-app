@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://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@github.com/MarcoGenova/microservice-boilerplate.git"
+    "url": "git+https://github.com/MarcoGenova/microservice-boilerplate.git"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/MarcoGenova/microservice-boilerplate/issues"
   },
-  "homepage": "https://github.com/MarcoGenova/microservice-boilerplate#readme"
+  "homepage": "https://github.com/MarcoGenova/microservice-boilerplate#readme",
+  "devDependencies": {
+    "typescript": "^4.9.4"
+  }
 }
