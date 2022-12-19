@@ -10,6 +10,8 @@ import { KeepAliveRoutes } from './routes/keepAlive.config';
 import debug from 'debug';
 import { GenericRoutesConfig } from './routes/generic.config';
 
+//TODO define a abstract logic to define the usage of cluster or not (e.g. Kuberneet approach
+//resources managed by cluster)
 const numberOfCores = OSUtilities.getNumberOfCPUBasic();
 
 if (cluster.isPrimary) {

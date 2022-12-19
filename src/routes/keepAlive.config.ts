@@ -12,7 +12,12 @@ export class KeepAliveRoutes extends GenericRoutesConfig {
 
         this.app.route(`/monitor/keep-alive`)
             .get((req: express.Request, res: express.Response) => {
-                res.status(200).send(new KeepAlive(ServiceStatus.ACTIVE, TimeUtilities.getTimestampAsString(), "not real checks on interfaces"));
+                let keepAliveDto: KeepAlive = {
+                    status: ServiceStatus.ACTIVE,
+                    timestamp: TimeUtilities.getTimestampAsString(),
+                    message: "not real checks on interfaces"
+                };
+                res.status(200).send(keepAliveDto);
             });
 
         return this.app;
