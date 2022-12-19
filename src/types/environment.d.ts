@@ -5,6 +5,7 @@ declare global {
     interface ProcessEnv {
         ENV: 'test' | 'dev' | 'prod';
         HTTP_PORT: string | undefined;
+        DEBUG_REST: 'true' | undefined; 
     }
   }
 }
