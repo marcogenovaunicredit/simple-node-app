@@ -1,6 +1,5 @@
 import express from 'express';
-import { KeepAlive, ServiceStatus } from '../models/keepAlive.model';
-import { TimeUtilities } from '../utilities/time.utilities';
+import keepAliveController from '../controllers/keepAlive.controller';
 import { GenericRoutesConfig } from './generic.config';
 
 export class KeepAliveRoutes extends GenericRoutesConfig {
@@ -9,17 +8,7 @@ export class KeepAliveRoutes extends GenericRoutesConfig {
     }
 
     configureRoutes() {
-
-        this.app.route(`/monitor/keep-alive`)
-            .get((req: express.Request, res: express.Response) => {
-                let keepAliveDto: KeepAlive = {
-                    status: ServiceStatus.ACTIVE,
-                    timestamp: TimeUtilities.getTimestampAsString(),
-                    message: "not real checks on interfaces"
-                };
-                res.status(200).send(keepAliveDto);
-            });
-
+        this.app.route(`/monitor/keep-alive`).get(keepAliveController.keepAlive);
         return this.app;
     }
 
