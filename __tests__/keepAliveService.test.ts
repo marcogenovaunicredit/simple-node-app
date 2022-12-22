@@ -1,4 +1,3 @@
-import { notDeepEqual } from 'assert';
 import { KeepAlive } from '../src/models/keepAlive.model';
 import keepaliveService from '../src/services/keepAlive.service';
 
