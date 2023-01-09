@@ -1,4 +1,5 @@
-import { CacheManager } from "./cachemanager.service";
+import { CacheManager } from './cachemanager.service';
+import { CacheFactory } from './cachefactory.service';
 import nodeCacheManager from "./localcachemanager.service";
 
 class InMemoryCacheFactory implements CacheFactory {    
@@ -6,7 +7,6 @@ class InMemoryCacheFactory implements CacheFactory {
         //TODO add the cache type management
         return nodeCacheManager;
     }
-
 }
 
 export default new InMemoryCacheFactory();
