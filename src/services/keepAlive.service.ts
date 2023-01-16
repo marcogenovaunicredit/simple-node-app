@@ -1,4 +1,5 @@
-import { KeepAlive, ServiceStatus } from '../models/keepAlive.model';
+import { KeepAlive } from '../models/keepAlive.model';
+import { ServiceStatus } from '../models/serviceStatus.enum';
 import { TimeUtilities } from '../utilities/time.utilities';
 
 class KeepAliveService {
