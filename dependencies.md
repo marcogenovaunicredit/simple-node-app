@@ -6,6 +6,8 @@
 <li>express-winston : ^4.2.0</li>
 <li>node-ts-cache : ^4.4.0</li>
 <li>node-ts-cache-storage-memory : ^4.4.0</li>
+<li>swagger-jsdoc : ^6.2.7</li>
+<li>swagger-ui-express : ^4.6.0</li>
 <li>winston : ^3.8.2</li>
 </ol>
 
