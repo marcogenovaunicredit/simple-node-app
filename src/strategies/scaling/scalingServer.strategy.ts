@@ -1,3 +1,4 @@
+import { ScalingStrategies } from "../../types/scalingStrategies";
 import { Strategy } from "../basic.strategy";
 
 export class ScalingServerStrategy extends Strategy {
@@ -6,7 +7,7 @@ export class ScalingServerStrategy extends Strategy {
     private isMasterThreadLogic: Function;
 
     constructor(isMasterThreadLogic:  Function = () => false, masterNodeExecution: Function|undefined, secondaryNodeExecution: Function|undefined) {
-        super("SCALING_SERVER");
+        super(ScalingStrategies.server.toString());
         this.isMasterThreadLogic = isMasterThreadLogic;
         this.masterNodeExecution = masterNodeExecution;
         this.secondaryNodeExecution = secondaryNodeExecution;

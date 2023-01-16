@@ -6,4 +6,8 @@ export abstract class Strategy {
     }
 
     abstract execute(): Promise<void>;
+
+    async getCode (): Promise<string> {
+        return this.code;
+    }
 }

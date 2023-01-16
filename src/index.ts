@@ -1,10 +1,9 @@
-import { ScalingGenericCloudStrategy } from './strategies/scaling/scalingGenericCloud.strategy';
-import { ScalingServerStrategy } from './strategies/scaling/scalingServer.strategy';
-import {masterScalingExecution, secondaryScalingExecution, isMasterThread } from "./strategies/scaling/utilities/server";
+import process from 'process';
+import { ScalingStrategyFactory } from './strategies/scalingStrategy.factory';
+import { Strategy } from './strategies/basic.strategy';
 
-//TODO define a abstract logic to define the usage of cluster or not (e.g. kubernetes approach
-let scalingServerStrategy: ScalingServerStrategy = new ScalingServerStrategy(isMasterThread, masterScalingExecution, secondaryScalingExecution);
-//scalingServerStrategy.execute();
-
-let scalingGenericCloudStrategy: ScalingGenericCloudStrategy = new ScalingGenericCloudStrategy(secondaryScalingExecution);
-scalingGenericCloudStrategy.execute();
+//TODO create a proper runner
+(async () => {
+    let strategy: Strategy = await ScalingStrategyFactory.getStrategy(process.env.SCALING_STRATEGY);
+    await strategy.execute();
+})();

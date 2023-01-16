@@ -25,5 +25,3 @@ The list of the all the properties follows:<br>
 see the list of [dist dependencies](dependencies.md)
 
 ## References:
-
-[1] https://www.toptal.com/express-js/nodejs-typescript-rest-api-pt-1
