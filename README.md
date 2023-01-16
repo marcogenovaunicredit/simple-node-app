@@ -7,11 +7,21 @@ This boilerplate is agnostic to the infrastructure. The microservices can be con
 
 The git-flow will be based on feature management.
 
+## Configuration
+
+The list of the all the properties follows:<br>
+
+> #### SCALING_STRATEGY
+> this property enable the application to exploits different strategy to scale-up:
+>
+> - CLOUD: the application manages only single thread, the scaling up is managed by cloud provider or equivalent
+> - SERVER: the application takes care to choose the right number thread (the ceiling of the half number of CPUs)
+> 
+> if the property is *not defined* the strategy used is the **SERVER**
+
 
 ## Dependencies:
 
 see the list of [dist dependencies](dependencies.md)
 
 ## References:
-
-[1] https://www.toptal.com/express-js/nodejs-typescript-rest-api-pt-1
