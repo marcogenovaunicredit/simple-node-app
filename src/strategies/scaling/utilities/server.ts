@@ -7,10 +7,9 @@ import * as winston from 'winston';
 import * as expressWinston from 'express-winston';
 import cors from 'cors';
 import debug from 'debug';
-import swaggerJsdoc from 'swagger-jsdoc';
-import swaggerUi from 'swagger-ui-express';
 import { GenericRoutesConfig } from "../../../routes/generic.config";
 import { KeepAliveRoutes } from '../../../routes/keepAlive.config';
+import swaggerDocsCreatorService from "../../../services/swaggerDocsCreator.service";
 
 export async function isMasterThread(): Promise<boolean> {
     return cluster.isPrimary;
@@ -62,43 +61,9 @@ export async function secondaryScalingExecution(): Promise<void> {
     // initialize the logger with the above configuration
     app.use(expressWinston.logger(loggerOptions));
 
-    const apiOptions = {
-        definition: {
-            openapi: "3.0.3",
-            info: {
-                title: "microservice-boilerplate",
-                version: "0.1.0",
-                description:
-                    "Base for microservices with node js",
-                contact: {
-                    name: "Marco Genova",
-                    url: "https://it.linkedin.com/in/marcogenova",
-                    email: "m.genova@sswprod.com",
-                },
-            },
-            servers: [
-                {
-                    url: "http://localhost:" + port,
-                    description: "Local development server"
-                },
-            ],
-        },
-        apis: ["./build/**/*.js"]
-    };
-
-    const specs: object = swaggerJsdoc(apiOptions);
-
-    if (process.env.DEBUG_REST) {
-        console.debug('Enabled swagger configuration');
-        console.debug(JSON.stringify(specs));
+    if(process.env.ENABLE_SWAGGER === 'Y') {
+        await swaggerDocsCreatorService.installSwaggerOnExpressApplication(app);
     }
-
-    app.use(
-        "/api-docs",
-        swaggerUi.serve,
-        swaggerUi.setup(specs, { explorer: true, customCssUrl: "https://cdn.jsdelivr.net/npm/swagger-ui-themes@3.0.0/themes/3.x/theme-newspaper.css" })
-    );
-
     //TODO create a mechanism to load dynamically the routes
     routes.push(new KeepAliveRoutes(app));
 
