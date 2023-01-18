@@ -1,0 +1,22 @@
+{
+  "definition": {
+    "openapi": "3.0.3",
+    "info": {
+      "title": "microservice-boilerplate",
+      "version": "0.1.0",
+      "description": "Base for microservices with node js",
+      "contact": {
+        "name": "Marco Genova",
+        "url": "https://it.linkedin.com/in/marcogenova",
+        "email": "m.genova@sswprod.com"
+      }
+    },
+    "servers": [
+      {
+        "url": "http://localhost:8080",
+        "description": "Local development server"
+      }
+    ]
+  },
+  "apis": ["./build/**/*.js"]
+}

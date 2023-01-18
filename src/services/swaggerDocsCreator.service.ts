@@ -1,35 +1,13 @@
 import express from 'express';
 import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
+import { readFile } from "fs/promises";
 
 class SwaggerDocsCreatorService {
 
     async installSwaggerOnExpressApplication(app: express.Application) : Promise<void> {
-        const port: any = process.env.HTTP_PORT || '8080';
 
-        const specs: object = swaggerJsdoc({
-            definition: {
-                openapi: "3.0.3",
-                info: {
-                    title: "microservice-boilerplate",
-                    version: "0.1.0",
-                    description:
-                        "Base for microservices with node js",
-                    contact: {
-                        name: "Marco Genova",
-                        url: "https://it.linkedin.com/in/marcogenova",
-                        email: "m.genova@sswprod.com",
-                    },
-                },
-                servers: [
-                    {
-                        url: "http://localhost:" + port,
-                        description: "Local development server"
-                    },
-                ],
-            },
-            apis: ["./build/**/*.js"]
-        });
+        const specs: object = swaggerJsdoc(JSON.parse(await readFile('./swagger-base-definition.json', "utf8")));
 
         if (process.env.DEBUG_REST) {
             console.debug('Enabled swagger configuration');

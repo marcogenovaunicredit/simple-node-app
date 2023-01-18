@@ -26,6 +26,8 @@ The list of the all the properties follows:<br>
 > - N: web site not operative
 > 
 > if the property is *not defined* the strategy used is the **N**
+>
+> The base of the swagger docs configuration is defined in the file *swagger-base-definition.json* in the root directory of the project.
 
 ## Dependencies:
 
