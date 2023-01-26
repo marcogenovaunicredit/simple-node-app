@@ -29,6 +29,12 @@ The list of the all the properties follows:<br>
 >
 > The base of the swagger docs configuration is defined in the file *swagger-base-definition.json* in the root directory of the project.
 
+
+## Database connectivity
+The boilerplate take in account the connection to the NOSQL storage. In order to test the implementation and the integration a MongoDB local installation is used. The version of MongoDB is **6.0.4**, instructions for the installation are [HERE](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/). 
+
+==NOTE==: For the tests, A Windows workstation was used, in general there are'nt issue on other platforms. 
+
 ## Dependencies:
 
 see the list of [dist dependencies](dependencies.md)
