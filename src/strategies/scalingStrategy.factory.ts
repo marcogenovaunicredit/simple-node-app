@@ -5,7 +5,7 @@ import { ScalingGenericCloudStrategy } from "./scaling/scalingGenericCloud.strat
 import { ScalingStrategies } from '../types/scalingStrategies';
 
 export class ScalingStrategyFactory {
-    static async getStrategy(strategyCode: string | undefined): Promise<Strategy> {
+    static async getStrategy(strategyCode: string | undefined): Promise<Strategy<void>> {
         switch (strategyCode) {
             case ScalingStrategies.cloud: {
                 return new ScalingGenericCloudStrategy(secondaryScalingExecution);

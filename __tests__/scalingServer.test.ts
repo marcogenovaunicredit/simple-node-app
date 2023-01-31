@@ -54,7 +54,7 @@ describe('Testing the configuration of the Scaling Generic Cloud Strategy', () =
 
 describe('Testing the factory of the Scaling Strategy', () => {
     test('check all the options', async () => {
-        let myStrategy: Strategy = await ScalingStrategyFactory.getStrategy(ScalingStrategies.cloud);
+        let myStrategy: Strategy<void> = await ScalingStrategyFactory.getStrategy(ScalingStrategies.cloud);
         let strategyCode: string = await myStrategy.getCode();
         expect(strategyCode).toEqual(ScalingStrategies.cloud);
 
