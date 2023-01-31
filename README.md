@@ -29,11 +29,24 @@ The list of the all the properties follows:<br>
 >
 > The base of the swagger docs configuration is defined in the file *swagger-base-definition.json* in the root directory of the project.
 
+> #### DATABASE_STRATEGY
+> this property enable the application to use the mongo database with a specific initializer algorithm in which the connection pool is started at the bootstrap of the application. 
+>At the moment, MongoDB is a mandatory component to use. In the *future* will be optional component.
+> Only value:
+>
+> - MONGO_STD
+
+> #### DATABASE_URI
+> this property contains the complete URL of the database. In the actual implementation is not active the authentication mechanism.
+> The default string is *mongodb://localhost:27017/LOCAL_TEST*
 
 ## Database connectivity
 The boilerplate take in account the connection to the NOSQL storage. In order to test the implementation and the integration a MongoDB local installation is used. The version of MongoDB is **6.0.4**, instructions for the installation are [HERE](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/). 
 
-==NOTE==: For the tests, A Windows workstation was used, in general there are'nt issue on other platforms. 
+The **models** of MongoDB are based on *Mongoose*. In order to enable the mechanism a simple Schema was created (Product).
+The schemas can be defined at project level at the moment. 
+
+<mark>NOTE</mark>: For the tests, A Windows workstation was used, in general there are'nt issue on other platforms. 
 
 ## Dependencies:
 
