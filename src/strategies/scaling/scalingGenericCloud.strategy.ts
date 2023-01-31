@@ -1,7 +1,7 @@
 import { ScalingStrategies } from "../../types/scalingStrategies";
 import { Strategy } from "../basic.strategy";
 
-export class ScalingGenericCloudStrategy extends Strategy {
+export class ScalingGenericCloudStrategy extends Strategy<void> {
     private singleNodeExecution: Function|undefined;
 
     constructor(singleNodeExecution: Function|undefined) {

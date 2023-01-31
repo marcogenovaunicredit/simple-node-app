@@ -1,7 +1,7 @@
 import { ScalingStrategies } from "../../types/scalingStrategies";
 import { Strategy } from "../basic.strategy";
 
-export class ScalingServerStrategy extends Strategy {
+export class ScalingServerStrategy extends Strategy<void> {
     private masterNodeExecution: Function|undefined;
     private secondaryNodeExecution: Function|undefined;
     private isMasterThreadLogic: Function;
